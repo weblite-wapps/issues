@@ -1,11 +1,16 @@
 {
   "name": "backend",
   "version": "0.1.0",
-  "main": "index.js",
-  "repository": "https://github.com/weblite-wapps/issues",
-  "license": "MIT",
+  "main": "./src/app.js",
   "private": true,
+  "scripts": {
+    "start": "nodemon ./src/app.js"
+  },
   "dependencies": {
-    "express": "^4.17.1"
-  }
+    "@koa/cors": "^3.0.0",
+    "koa": "^2.8.1",
+    "koa-router": "^7.4.0"
+  },
+  "repository": "https://github.com/weblite-wapps/issues",
+  "license": "MIT"
 }

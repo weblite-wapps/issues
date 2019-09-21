@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.4.2",
+    "@reach/router": "^1.2.1",
     "ramda": "^0.26.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -16,6 +17,20 @@
     "build": "react-scripts build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "plugin:prettier/recommended"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
