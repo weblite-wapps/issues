@@ -4,19 +4,15 @@ import { LocationProvider, Router } from '@reach/router'
 import { Provider } from 'react-redux'
 // components
 import AppBar from '../components/AppBar/appBar'
-import IssueList from '../components/IssueList/issueList'
+import AllIssues from '../components/IssueList/allIssues.container'
+import MyIssues from '../components/IssueList/myIssues.container'
+import IssuePage from '../components/IssuePage/issuePage.container'
+import NewIssue from '../components/NewIssue/newIssue.container'
 // styles
-import './App.css'
+import './app.css'
 // setup
 import store from '../../setup/redux'
 import { history } from '../../setup/history.js'
-
-const issues = new Array(10).fill({
-  title: 'مشکل سرمایش و گرمایش',
-  commentsCount: 11,
-  status: 'closed',
-  onClick: console.log,
-})
 
 const App = () => (
   <Provider store={store}>
@@ -35,10 +31,10 @@ const App = () => (
         }}
       >
         <Router>
-          <IssueList issues={issues} path="all" />
-          {/* <AllIssues path="all" /> */}
-          {/* <MyIssues path="mine" /> */}
-          {/* <newIssue path="new" /> */}
+          <AllIssues path="all" />
+          <MyIssues path="mine" />
+          <NewIssue path="new" />
+          <IssuePage path="issue" />
         </Router>
       </div>
     </LocationProvider>

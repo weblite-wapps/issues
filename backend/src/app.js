@@ -2,10 +2,6 @@
 const koa = require("koa");
 const app = new koa();
 
-// router
-const Router = require("koa-router");
-const router = new Router();
-
 // cors
 const cors = require("@koa/cors");
 app.use(
@@ -15,24 +11,29 @@ app.use(
 );
 
 // bodyParser
-// const bodyParser = require('koa-bodyparser')
-// app.use(bodyParser())
+const bodyParser = require("koa-bodyparser");
+app.use(bodyParser());
 
 // db
 const database = require("./database/dbConnector");
 database.connect("issues_db");
 
-// app.use(async (ctx, next) => {
-//   try {
-//     await next();
-//   } catch (error) {
-//     ctx.status = error.status || 500;
-//     ctx.body = error.message;
-//     ctx.app.emit("error", error, ctx);
-//   }
-// });
+app.use(async (ctx, next) => {
+  try {
+    await next();
+  } catch (error) {
+    ctx.status = error.status || 500;
+    ctx.body = error.message;
+  }
+});
 
-require("./router")({ router });
+// router
+const Router = require("@koa/router");
+const routerHandler = require("./router");
+
+const router = new Router();
+routerHandler(router);
+
 app.use(router.routes());
 app.use(router.allowedMethods());
 

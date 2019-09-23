@@ -1,19 +1,26 @@
 const { Issue } = require("./dbModel");
 
 exports.createIssue = ({ wisId, title, body, isPublic, creatorId }) =>
-  Issue.Create({
+  new Issue({
     wisId,
     title,
     body,
     isPublic,
     creatorId
-  });
+  }).save();
 
 exports.incrementCommentsCountById = id =>
-  Issue.updateOne({ _id: id }, { $inc: { commentsCount: 1 } });
+  Issue.findOneAndUpdate(
+    { _id: id },
+    { $inc: { commentsCount: 1 } },
+    { new: true }
+  );
 
-exports.closeIssueById = id =>
+exports.closeIssue = id =>
   Issue.updateOne({ _id: id }, { $set: { isClosed: false } });
 
 exports.getIssuesByWisId = wisId =>
-  Issue.findOne({ wisId: id }, { $set: { isClosed: false } });
+  Issue.find({ wisId, deleted: { $exists: false } });
+
+exports.deleteIssue = id =>
+  Issue.updateOne({ _id: id }, { $set: { deleted: true } });

@@ -1,6 +1,4 @@
 {
-    "cSpell.words": [
-        "DEVTOOLS"
-    ],
-    "git.ignoreLimitWarning": true
+  "cSpell.words": ["DEVTOOLS", "wapp"],
+  "git.ignoreLimitWarning": true
 }

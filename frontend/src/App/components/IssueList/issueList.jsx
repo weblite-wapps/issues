@@ -2,7 +2,7 @@
 import * as R from 'ramda'
 import React from 'react'
 // components
-import Issue from '../Issue/issue'
+import Issue from '../Issue/issue.container'
 
 const IssueList = ({ issues }) => {
   return (
