@@ -1,6 +1,6 @@
 // modules
 const { get, post } = require('axios').create({
-  baseURL: 'http://localhost:3003'
+  baseURL: 'https://wapp.weblite.me/srv-comment'
 })
 
 exports.addNewComment = ({ comment, writerId, wisId, issueId }) =>

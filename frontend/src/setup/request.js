@@ -1,7 +1,7 @@
 // modules
 import { create } from 'axios'
 
-const server = 'http://localhost:3002'
+const server = 'https://wapp.weblite.me/issues'
 
 export const { get, post } = create({
   baseURL: server,
