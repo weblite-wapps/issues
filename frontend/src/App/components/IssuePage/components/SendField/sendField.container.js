@@ -8,6 +8,15 @@ import { dispatchSetIssuePageData } from '../../issuePage.actions.js'
 import { reqNewComment } from '../../../../../logic/comments/comments.request'
 // redux
 import { getState } from '../../../../../setup/redux'
+// helpers
+import { isPhoneOrTablet } from '../../../../../helpers/device'
+
+const sendComment = () => {
+  const { issueId, sendFieldValue } = getState().view.issuePage || {}
+  dispatchSetIssuePageData({ sendFieldLoading: true })
+  dispatchSetIssuePageData({ sendFieldValue: '' })
+  reqNewComment({ comment: sendFieldValue, issueId })
+}
 
 const mapStateToProps = state => ({
   value: state.view.issuePage.sendFieldValue,
@@ -16,11 +25,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = () => ({
   onChange: value => dispatchSetIssuePageData({ sendFieldValue: value }),
-  onSend: () => {
-    const { issueId, sendFieldValue } = getState().view.issuePage || {}
-    dispatchSetIssuePageData({ sendFieldLoading: true })
-    dispatchSetIssuePageData({ sendFieldValue: '' })
-    reqNewComment({ comment: sendFieldValue, issueId })
+  onSend: sendComment,
+  onKeyDown: e => {
+    if (e.key === 'Enter' && !e.shiftKey && !isPhoneOrTablet) {
+      e.preventDefault()
+      sendComment()
+    }
   },
 })
 

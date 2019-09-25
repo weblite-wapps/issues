@@ -1,10 +1,3 @@
-// modules
-import * as R from 'ramda'
-// actions
-import { SET_FIELD_VALUE, RESET_NEW_ISSUE } from './newIssue.actions'
-// setup
-import { getState } from '../../../setup/redux'
-
 const initialState = {
   title: '',
   body: '',

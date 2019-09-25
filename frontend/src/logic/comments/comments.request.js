@@ -1,3 +1,5 @@
+// modules
+import * as R from 'ramda'
 // setup
 import { post, get } from '../../setup/request'
 import errorCodes from '../../setup/errorCodes'
@@ -49,6 +51,7 @@ export const reqGetComments = issueId =>
   get('getComments', { params: { issueId } })
     .then(({ data: { comments } }) => {
       dispatchSetComments(comments)
+      dispatchUpdateIssue(issueId, { commentsCount: comments.length })
       dispatchSetIssuePageData({ sendFieldLoading: false })
       getUsersInfo(R.map(R.prop('writerId'), comments))
     })

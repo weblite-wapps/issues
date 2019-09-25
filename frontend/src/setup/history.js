@@ -1,8 +1,4 @@
-import {
-  createMemorySource,
-  createHistory,
-  LocationProvider,
-} from '@reach/router'
+import { createHistory, createMemorySource } from '@reach/router'
 
 const source = createMemorySource('/all')
 export const history = createHistory(source)

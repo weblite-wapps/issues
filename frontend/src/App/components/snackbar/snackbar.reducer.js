@@ -1,4 +1,3 @@
-import { getState } from '../../../setup/redux'
 // actions
 import { CHANGE_SNACKBAR_STAGE } from './snackbar.actions'
 

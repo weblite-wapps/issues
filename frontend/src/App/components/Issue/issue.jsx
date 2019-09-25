@@ -1,12 +1,8 @@
 // modules
 import React from 'react'
 // components
-import Card from '@material-ui/core/Card'
 import Typography from '@material-ui/core/Typography'
-import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
-// icons
-import CommentIcon from '@material-ui/icons/Chat'
 // helpers
 import { convertToPersianFormat, toPersianNumber } from '../../../helpers/date'
 
@@ -18,7 +14,7 @@ const statusMap = isClosed =>
 const Issue = ({ title, commentsCount, isClosed, date, onClick }) => (
   <Button
     style={{
-      width: 300,
+      width: 'calc(100% - 40px)',
       borderRadius: 12,
       marginTop: '10px',
       cursor: 'pointer',
@@ -71,7 +67,7 @@ const Issue = ({ title, commentsCount, isClosed, date, onClick }) => (
             >
               {toPersianNumber(commentsCount)}
             </Typography>
-            <img src="/speech.svg"></img>
+            <img alt="commentIcon" src="speech.svg"></img>
           </span>
           <Typography
             className="iranyekan"
@@ -94,6 +90,10 @@ const Issue = ({ title, commentsCount, isClosed, date, onClick }) => (
             letterSpacing: '-0.1px',
             textAlign: 'right',
             marginTop: 2,
+            overflowWrap: 'break-word',
+            wordWrap: 'break-word',
+            wordBreak: 'break-word',
+            whiteSpace: 'pre-line',
           }}
         >
           {title}

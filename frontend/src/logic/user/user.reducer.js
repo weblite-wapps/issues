@@ -1,3 +1,5 @@
+// modules
+import * as R from 'ramda'
 // actions
 import { SET_USER_DATA } from './user.actions'
 // redux

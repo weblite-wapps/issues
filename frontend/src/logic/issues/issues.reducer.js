@@ -2,8 +2,6 @@
 import * as R from 'ramda'
 // views
 import { userIdView } from '../user/user.reducer'
-// actions
-// import { ADD_NEW_ISSUE } from './issues.action'
 // redux
 import { getState } from '../../setup/redux'
 
@@ -14,7 +12,8 @@ export const issuesView = () => R.path(['main', 'issues'], getState())
 // export const issuesView = () =>
 //   R.range(1, 15).map(i => ({
 //     id: i,
-//     title: 'مشکل سرمایش و گرمایش',
+//     title:
+//       ' مشکل سرمایش و گرمایش مشکل سرمایش و گرمایش مشکل سرمایش و گرمایشمشکل سرمایش و گرمایش',
 //     body:
 //       'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه مجله در ستون و سطر آنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد',
 //     commentsCount: i,

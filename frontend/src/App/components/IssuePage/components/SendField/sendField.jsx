@@ -5,10 +5,9 @@ import InputBase from '@material-ui/core/InputBase'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 // icons
-import CloseIcon from '@material-ui/icons/Close'
 import SendIcon from '@material-ui/icons/Send'
 
-const SendField = ({ value, loading, onChange, onSend }) => (
+const SendField = ({ value, loading, onChange, onSend, onKeyDown }) => (
   <div
     style={{
       position: 'fixed',
@@ -61,6 +60,7 @@ const SendField = ({ value, loading, onChange, onSend }) => (
       onChange={e => onChange(e.target.value)}
       placeholder="پاسخ خود را وارد کنید"
       inputProps={{
+        onKeyDown,
         style: {
           minHeight: 30,
           fontSize: '12px',

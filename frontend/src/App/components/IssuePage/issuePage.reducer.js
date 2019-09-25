@@ -1,5 +1,3 @@
-// modules
-import * as R from 'ramda'
 // actions
 // import { SET_ISSUE_PAGE_DATA } from './issuePage.actions'
 

@@ -5,10 +5,7 @@ import App from './App/main/app.jsx'
 import './index.css'
 import './setup/fonts/fonts.scss'
 // requests
-import { reqGetAllIssues } from './logic/issues/issues.request'
 import loadData from './helpers/weblite.api'
 
 ReactDOM.render(<App />, document.getElementById('root'))
-
-reqGetAllIssues()
 loadData()

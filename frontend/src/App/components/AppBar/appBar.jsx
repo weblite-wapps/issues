@@ -1,7 +1,5 @@
 // modules
 import React from 'react'
-import PropTypes from 'prop-types'
-import Typography from '@material-ui/core/Typography'
 import MuiAppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 // style

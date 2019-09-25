@@ -36,11 +36,12 @@ const Comment = ({
       >
         {profileImage ? (
           <img
+            alt="userImage"
             src={profileImage}
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         ) : (
-          <img src="/user.svg" alt="user" />
+          <img src="user.svg" alt="user" />
         )}
       </span>
       <span
@@ -61,7 +62,7 @@ const Comment = ({
             borderRadius: '11px',
           }}
         >
-          {`${firstname} ${lastname}`}
+          {firstname && lastname ? `${firstname} ${lastname}` : 'در حال دریافت'}
         </Typography>
         <Typography
           color="textSecondary"
@@ -70,7 +71,7 @@ const Comment = ({
             fontSize: 10,
             fontWeight: 'bold',
             lineHeight: '17px',
-            textAlign: 'right',
+            textAlign: fromAdmin ? 'left' : 'right',
             letterSpacing: '-0.07px',
           }}
         >
@@ -81,16 +82,19 @@ const Comment = ({
     <div>
       <Typography
         className="iranyekan"
+        dir="rtl"
         style={{
           background: '#F0F0F0',
-          textAlign: 'right',
           [`margin${fromAdmin ? 'Left' : 'Right'}`]: 43,
           padding: '5px 9px',
           borderRadius: '11px',
           fontSize: '12px',
           lineHeight: '21px',
-          textAlign: 'right',
           letterSpacing: '-0.08px',
+          overflowWrap: 'break-word',
+          wordWrap: 'break-word',
+          wordBreak: 'break-word',
+          whiteSpace: 'pre-line',
         }}
       >
         {body}

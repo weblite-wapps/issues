@@ -3,6 +3,9 @@ import * as R from 'ramda'
 import React from 'react'
 // components
 import Issue from '../Issue/issue.container'
+import TextField from '@material-ui/core/TextField'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import SearchIcon from '@material-ui/icons/Search'
 
 const IssueList = ({ issues }) => {
   return (
@@ -16,6 +19,33 @@ const IssueList = ({ issues }) => {
         paddingBottom: 10,
       }}
     >
+      <TextField
+        dir="rtl"
+        style={{ width: 'calc(100% - 40px)', margin: '20px 0 5px' }}
+        disabled
+        inputProps={{
+          style: {
+            padding: '0 14px',
+            height: '35px',
+            fontSize: '12px',
+            lineHeight: '21px',
+            letterSpacing: '-0.08px',
+            fontFamily: 'iranyekan',
+          },
+        }}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
+        required
+        value=""
+        onChange={Function.prototype}
+        variant="outlined"
+        placeholder="جست و جو کنید"
+      />
       {issues.length ? (
         R.map(item => <Issue {...item} />, issues)
       ) : (
@@ -29,6 +59,11 @@ const IssueList = ({ issues }) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            fontSize: '14px',
+            lineHeight: '25px',
+            letterSpacing: '-0.08px',
+            fontFamily: 'iranyekan',
+            fontWeight: 'bold',
           }}
         >
           سوالی وجود ندارد
