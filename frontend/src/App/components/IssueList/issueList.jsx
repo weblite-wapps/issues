@@ -9,16 +9,30 @@ const IssueList = ({ issues }) => {
     <div
       style={{
         display: 'flex',
+        width: '100%',
+        height: '100%',
         flexDirection: 'column',
         alignItems: 'center',
         paddingBottom: 10,
       }}
     >
-      {R.map(
-        item => (
-          <Issue {...item} />
-        ),
-        issues,
+      {issues.length ? (
+        R.map(item => <Issue {...item} />, issues)
+      ) : (
+        <div
+          style={{
+            position: 'fixed',
+            width: '100%',
+            top: '50px',
+            height: 'calc(100% - 96px)',
+            color: '#bbbbbb',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          سوالی وجود ندارد
+        </div>
       )}
     </div>
   )

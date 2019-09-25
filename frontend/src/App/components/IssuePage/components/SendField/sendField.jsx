@@ -15,7 +15,7 @@ const SendField = ({ value, loading, onChange, onSend }) => (
       bottom: 0,
       width: '100%',
       height: '50px',
-      background: '#7DD9DE',
+      background: '#0D2154',
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
@@ -60,7 +60,15 @@ const SendField = ({ value, loading, onChange, onSend }) => (
       value={value}
       onChange={e => onChange(e.target.value)}
       placeholder="پاسخ خود را وارد کنید"
-      inputProps={{ style: { minHeight: 30 } }}
+      inputProps={{
+        style: {
+          minHeight: 30,
+          fontSize: '12px',
+          lineHeight: '21px',
+          letterSpacing: '-0.08px',
+          fontFamily: 'iranyekan',
+        },
+      }}
       multiline
       rows={1}
     />

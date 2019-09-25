@@ -6,10 +6,13 @@ import Issue from './issue'
 import { dispatchSetIssuePageData } from '../IssuePage/issuePage.actions'
 // router
 import { navigate } from '../../../setup/history.js'
+// requests
+import { reqGetComments } from '../../../logic/comments/comments.request'
 
-const mapDispatchToProps = (_, { title, body, date }) => ({
+const mapDispatchToProps = (_, props) => ({
   onClick: () => {
-    dispatchSetIssuePageData({ title, body, date })
+    dispatchSetIssuePageData({ ...props, issueId: props._id })
+    reqGetComments(props._id)
     navigate('issue')
   },
 })

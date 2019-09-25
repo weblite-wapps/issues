@@ -7,6 +7,8 @@ const initialState = {
   title: '',
   body: '',
   date: 0,
+  issueId: '',
+  isClosed: false,
   sendFieldLoading: false,
   sendFieldValue: '',
 }

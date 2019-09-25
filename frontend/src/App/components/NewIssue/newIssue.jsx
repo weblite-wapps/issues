@@ -9,7 +9,13 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 const titlesStyle = {
   width: '100%',
   textAlign: 'right',
+}
+
+const fontStyle = {
   fontSize: '12px',
+  lineHeight: '21px',
+  letterSpacing: '-0.08px',
+  fontFamily: 'iranyekan',
 }
 
 const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
@@ -19,10 +25,10 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: 15,
+        padding: '5px 15px',
       }}
     >
-      <p style={titlesStyle}>عنوان درخواست</p>
+      <p style={{ ...titlesStyle, ...fontStyle }}>عنوان درخواست</p>
       <TextField
         dir="rtl"
         style={{ width: '100%' }}
@@ -31,6 +37,7 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
             padding: '0 14px',
             fontSize: '12px',
             height: '35px',
+            ...fontStyle,
           },
         }}
         required
@@ -40,7 +47,7 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
         placeholder="عنوان درخواست خود را وارد کنید"
       />
 
-      <p style={titlesStyle}>متن درخواست</p>
+      <p style={{ ...titlesStyle, ...fontStyle }}>متن درخواست</p>
       <TextField
         dir="rtl"
         style={{ width: '100%' }}
@@ -51,13 +58,14 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
         InputProps={{
           style: {
             fontSize: '12px',
+            ...fontStyle,
           },
         }}
         onChange={e => onChange('body', e.target.value)}
         placeholder="متن درخواست خود را وارد کنید"
       />
 
-      <p style={titlesStyle}>نوع درخواست</p>
+      <p style={{ ...titlesStyle, ...fontStyle }}>نوع درخواست</p>
       <ButtonGroup>
         <Button
           style={{
@@ -71,6 +79,7 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
             color: 'white',
             borderRadius: '11px 0px 0px 11px',
             background: isPublic ? '#CCCCCC' : '#7DD9DE',
+            ...fontStyle,
           }}
           onClick={() => onChange('isPublic', false)}
         >
@@ -88,6 +97,7 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
             color: 'white',
             borderRadius: '0px 11px 11px 0px',
             background: isPublic ? '#7DD9DE' : '#CCCCCC',
+            ...fontStyle,
           }}
           onClick={() => onChange('isPublic', true)}
         >
@@ -103,7 +113,7 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
 
       <Button
         variant="contained"
-        onClick={onSubmit}
+        onClick={() => onSubmit({ title, body, isPublic })}
         disabled={loading}
         style={{
           position: 'fixed',
@@ -120,7 +130,18 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
         {loading ? (
           <CircularProgress size={20} style={{ color: 'white' }} />
         ) : (
-          'ارسال'
+          <p
+            className="iranyekan"
+            style={{
+              margin: 0,
+              fontSize: '16px',
+              lineHeight: '28px',
+              fontWeight: 'bold',
+              letterSpacing: '-0.26px',
+            }}
+          >
+            ارسال
+          </p>
         )}
       </Button>
     </div>

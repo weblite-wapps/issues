@@ -9,4 +9,4 @@ export const dispatchSetFieldValue = (...args) =>
 
 export const RESET_NEW_ISSUE = 'RESET_NEW_ISSUE'
 export const dispatchResetNewIssue = (...args) =>
-  dispatch(createAction()(...args))
+  dispatch(createAction(RESET_NEW_ISSUE)(...args))

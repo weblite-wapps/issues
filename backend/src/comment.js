@@ -1,19 +1,19 @@
 // modules
-const { get, post } = require("axios").create({
-  baseURL: "http://localhost:3003"
-});
+const { get, post } = require('axios').create({
+  baseURL: 'http://localhost:3003'
+})
 
 exports.addNewComment = ({ comment, writerId, wisId, issueId }) =>
-  post("createComment", {
+  post('createComment', {
     contextId: issueId,
     body: comment,
     writerId,
     wisId
-  });
+  })
 
 exports.getComments = issueId =>
-  get("contextComments", {
+  get('contextComments', {
     params: {
       contextId: issueId
     }
-  });
+  })

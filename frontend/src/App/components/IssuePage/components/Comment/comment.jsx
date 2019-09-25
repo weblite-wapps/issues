@@ -2,9 +2,11 @@
 import React from 'react'
 // components
 import Typography from '@material-ui/core/Typography'
+// helpers
+import { convertToPersianFormat } from '../../../../../helpers/date'
 
 const Comment = ({
-  text,
+  body,
   date,
   fromAdmin,
   firstname,
@@ -49,8 +51,12 @@ const Comment = ({
         }}
       >
         <Typography
+          className="iranyekan"
           style={{
             fontSize: '14px',
+            lineHeight: '25px',
+            letterSpacing: '-0.1px',
+            fontWeight: 'bold',
             textAlign: fromAdmin ? 'left' : 'right',
             borderRadius: '11px',
           }}
@@ -59,22 +65,35 @@ const Comment = ({
         </Typography>
         <Typography
           color="textSecondary"
-          style={{ fontSize: 13, textAlign: 'right' }}
-        >{`سه شنبه ۲۶ شهریور - ۱۴:۲۳`}</Typography>
+          className="iranyekan"
+          style={{
+            fontSize: 10,
+            fontWeight: 'bold',
+            lineHeight: '17px',
+            textAlign: 'right',
+            letterSpacing: '-0.07px',
+          }}
+        >
+          {convertToPersianFormat(new Date(date))}
+        </Typography>
       </span>
     </div>
     <div>
       <Typography
+        className="iranyekan"
         style={{
           background: '#F0F0F0',
-          fontSize: '14px',
           textAlign: 'right',
           [`margin${fromAdmin ? 'Left' : 'Right'}`]: 43,
           padding: '5px 9px',
           borderRadius: '11px',
+          fontSize: '12px',
+          lineHeight: '21px',
+          textAlign: 'right',
+          letterSpacing: '-0.08px',
         }}
       >
-        {text}
+        {body}
       </Typography>
     </div>
   </div>

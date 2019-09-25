@@ -3,18 +3,42 @@ import { connect } from 'react-redux'
 // components
 import IssuePage from './issuePage'
 // views
-import { issueByIdView } from '../../../logic/issues/issues.reducer'
+import { userIdView, adminIdView } from '../../../logic/user/user.reducer'
+// requests
+import {
+  reqCloseIssue,
+  reqDeleteIssue,
+} from '../../../logic/issues/issues.request'
+// redux
+import { getState } from '../../../setup/redux'
 
-const date = new Date()
-
-const mapStateToProps = (state, { id }) => {
-  const { title, body, date } = state.view.issuePage || {}
+const mapStateToProps = state => {
+  const { title, body, date, creatorId, issueId, isClosed } =
+    state.view.issuePage || {}
   return {
     title,
     body,
     date,
+    issueId,
+    isClosed,
     comments: state.main.comments,
+    canClose: userIdView() === adminIdView() || isClosed,
+    canDelete: userIdView() === adminIdView() || userIdView() === creatorId,
   }
 }
 
-export default connect(mapStateToProps)(IssuePage)
+const mapDispatchToProps = () => ({
+  onCloseIssue: () => {
+    const { issueId } = getState().view.issuePage || {}
+    reqCloseIssue(issueId)
+  },
+  onDeleteIssue: () => {
+    const { issueId } = getState().view.issuePage || {}
+    reqDeleteIssue(issueId)
+  },
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(IssuePage)

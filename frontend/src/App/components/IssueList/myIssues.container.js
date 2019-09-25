@@ -1,13 +1,16 @@
 // modules
+import * as R from 'ramda'
 import { connect } from 'react-redux'
 // components
 import IssueList from './issueList'
-// actions
 // views
 import { myIssuesView } from '../../../logic/issues/issues.reducer'
 
 const mapStateToProps = () => ({
-  issues: myIssuesView(),
+  issues: R.compose(
+    R.reverse,
+    R.sortBy(R.prop('date')),
+  )(myIssuesView()),
 })
 
 export default connect(mapStateToProps)(IssueList)

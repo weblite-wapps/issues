@@ -3,11 +3,13 @@ import React from 'react'
 import { LocationProvider, Router } from '@reach/router'
 import { Provider } from 'react-redux'
 // components
+import Tabs from '../components/Tabs/tabs'
 import AppBar from '../components/AppBar/appBar'
 import AllIssues from '../components/IssueList/allIssues.container'
 import MyIssues from '../components/IssueList/myIssues.container'
 import IssuePage from '../components/IssuePage/issuePage.container'
 import NewIssue from '../components/NewIssue/newIssue.container'
+import AppSnackbar from '../components/snackbar/snackbar.container'
 // styles
 import './app.css'
 // setup
@@ -17,15 +19,16 @@ import { history } from '../../setup/history.js'
 const App = () => (
   <Provider store={store}>
     <LocationProvider history={history}>
+      <AppBar />
       <Router>
-        <AppBar path=":selected" />
+        <Tabs path=":selected" />
       </Router>
       <div
         style={{
           position: 'fixed',
-          top: '50px',
+          top: '96px',
           width: '100%',
-          height: 'calc(100% - 50px)',
+          height: 'calc(100% - 96px)',
           overflowX: 'hidden',
           overflowY: 'overlay',
         }}
@@ -37,6 +40,7 @@ const App = () => (
           <IssuePage path="issue" />
         </Router>
       </div>
+      <AppSnackbar />
     </LocationProvider>
   </Provider>
 )

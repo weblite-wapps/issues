@@ -7,21 +7,24 @@ import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 // icons
 import CommentIcon from '@material-ui/icons/Chat'
+// helpers
+import { convertToPersianFormat, toPersianNumber } from '../../../helpers/date'
 
-const statusMap = {
-  closed: { text: 'بسته شده', color: '#d65555' },
-  open: { text: 'در جریان', color: '#9bd655' },
-}
+const statusMap = isClosed =>
+  isClosed
+    ? { text: 'بسته شده', color: '#d65555' }
+    : { text: 'در جریان', color: '#9bd655' }
 
-const Issue = ({ title, commentsCount, status, date, onClick }) => (
+const Issue = ({ title, commentsCount, isClosed, date, onClick }) => (
   <Button
     style={{
       width: 300,
       borderRadius: 12,
-      margin: '10px 0 0',
+      marginTop: '10px',
       cursor: 'pointer',
       overflow: 'hidden',
-      padding: 0,
+      textTransform: 'none',
+      padding: '0',
     }}
     onClick={onClick}
   >
@@ -43,39 +46,79 @@ const Issue = ({ title, commentsCount, status, date, onClick }) => (
         >
           <span
             style={{
-              width: 40,
+              maxWidth: 50,
+              minWidth: 50,
               height: 20,
+              padding: '0 5px',
               background: '#ccc',
               borderRadius: '10px',
               display: 'flex',
               flexDirection: 'row',
               justifyContent: 'space-around',
               alignItems: 'center',
+              boxSizing: 'border-box',
             }}
           >
-            <Typography style={{ fontSize: 15, color: 'white' }}>
-              {commentsCount}
+            <Typography
+              className="iranyekan"
+              style={{
+                fontSize: 12,
+                fontWeight: 'bold',
+                lineHeight: '21px',
+                letterSpacing: '-0.08px',
+                color: 'white',
+              }}
+            >
+              {toPersianNumber(commentsCount)}
             </Typography>
-            <CommentIcon style={{ fontSize: 15, color: 'white' }} />
+            <img src="/speech.svg"></img>
           </span>
           <Typography
+            className="iranyekan"
             color="textSecondary"
-            style={{ fontSize: 13 }}
-          >{`آخرین پیام : سه شنبه ۲۶ شهریور - ۱۴:۲۳`}</Typography>
+            style={{
+              fontSize: 10,
+              lineHeight: '17px',
+              letterSpacing: '-0.07px',
+              fontWeight: 'bold',
+            }}
+          >{`آخرین پیام : ${convertToPersianFormat(
+            new Date(date),
+          )}`}</Typography>
         </div>
-        <Typography style={{ fontSize: 16, textAlign: 'right', marginTop: 2 }}>
+        <Typography
+          className="iranyekan"
+          style={{
+            fontSize: 14,
+            lineHeight: '25px',
+            letterSpacing: '-0.1px',
+            textAlign: 'right',
+            marginTop: 2,
+          }}
+        >
           {title}
         </Typography>
       </span>
       <div
         style={{
-          textAlign: 'center',
-          background: statusMap[status].color,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: statusMap(isClosed).color,
           height: 25,
         }}
       >
-        <Typography style={{ fontSize: 15, color: 'white' }}>
-          {statusMap[status].text}
+        <Typography
+          className="iranyekan"
+          style={{
+            fontSize: 12,
+            lineHeight: '17px',
+            letterSpacing: '-0.07px',
+            fontWeight: 'bold',
+            color: 'white',
+          }}
+        >
+          {statusMap(isClosed).text}
         </Typography>
       </div>
     </div>
