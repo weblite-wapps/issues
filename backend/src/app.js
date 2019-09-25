@@ -38,7 +38,7 @@ routerHandler(router)
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-const port = 3002
+const port = 4220
 const server = app.listen(port)
 
 module.exports = server

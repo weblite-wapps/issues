@@ -17,7 +17,7 @@ const initialState = {
 }
 
 const reducers = {
-  [ADD_USERS]: (state, users) => ({ ...state, users }),
+  [ADD_USERS]: (state, users) => ({ ...state, ...users }),
 }
 
 export default (state = initialState, { type, payload }) =>

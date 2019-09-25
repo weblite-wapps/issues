@@ -12,6 +12,8 @@ import {
 import { dispatchSetIssuePageData } from '../../App/components/IssuePage/issuePage.actions'
 import { dispatchSetSnackbarMessage } from '../../App/components/snackbar/snackbar.actions'
 import { navigate } from '../../setup/history'
+// helpers
+import { getUsersInfo } from '../../helpers/weblite.api'
 
 export const reqNewComment = ({ comment, issueId }) =>
   post('newComment', {
@@ -48,5 +50,6 @@ export const reqGetComments = issueId =>
     .then(({ data: { comments } }) => {
       dispatchSetComments(comments)
       dispatchSetIssuePageData({ sendFieldLoading: false })
+      getUsersInfo(R.map(R.prop('writerId'), comments))
     })
     .catch(console.log)

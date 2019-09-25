@@ -1,0 +1,14 @@
+{
+  "name": "issues",
+  "id": "5c30c783e717255f17fb3ad9",
+  "instantiable": true,
+  "creator": true,
+  "userInfo": true,
+  "fullscreen": false,
+  "inline": false,
+  "searchable": true,
+  "servIndexes": {
+    "main": "index"
+  },
+  "version": "0.0.0"
+}
