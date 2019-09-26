@@ -15,6 +15,7 @@ import './app.css'
 // setup
 import store from '../../setup/redux'
 import { history } from '../../setup/history.js'
+import { HEADER_HEIGHT } from '../../helpers/sizing'
 
 const App = () => (
   <Provider store={store}>
@@ -26,9 +27,9 @@ const App = () => (
       <div
         style={{
           position: 'fixed',
-          top: '96px',
+          top: `${HEADER_HEIGHT}px`,
           width: '100%',
-          height: 'calc(100% - 96px)',
+          height: `calc(100% - ${HEADER_HEIGHT}px)`,
           overflowX: 'hidden',
           overflowY: 'overlay',
         }}

@@ -1,5 +1,5 @@
-// actions
-// import { SET_ISSUE_PAGE_DATA } from './issuePage.actions'
+// consts
+import { INITIAL_SEND_FIELD_HEIGHT } from '../../../helpers/sizing'
 
 const initialState = {
   title: '',
@@ -7,8 +7,9 @@ const initialState = {
   date: 0,
   issueId: '',
   isClosed: false,
-  sendFieldLoading: false,
   sendFieldValue: '',
+  sendFieldLoading: false,
+  sendFieldHeight: INITIAL_SEND_FIELD_HEIGHT,
 }
 
 const reducers = {

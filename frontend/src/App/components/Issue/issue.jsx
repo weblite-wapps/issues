@@ -78,9 +78,9 @@ const Issue = ({ title, commentsCount, isClosed, date, onClick }) => (
               letterSpacing: '-0.07px',
               fontWeight: 'bold',
             }}
-          >{`آخرین پیام : ${convertToPersianFormat(
-            new Date(date),
-          )}`}</Typography>
+          >
+            {convertToPersianFormat(new Date(date))}
+          </Typography>
         </div>
         <Typography
           className="iranyekan"

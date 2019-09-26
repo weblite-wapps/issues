@@ -21,6 +21,7 @@ const sendComment = () => {
 const mapStateToProps = state => ({
   value: state.view.issuePage.sendFieldValue,
   loading: state.view.issuePage.sendFieldLoading,
+  sendFieldHeight: state.view.issuePage.sendFieldHeight,
 })
 
 const mapDispatchToProps = () => ({

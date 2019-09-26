@@ -1,7 +1,7 @@
 // modules
 import * as R from 'ramda'
 // views
-import { userIdView } from '../user/user.reducer'
+import { userIdView, adminIdView } from '../user/user.reducer'
 // redux
 import { getState } from '../../setup/redux'
 
@@ -24,7 +24,10 @@ export const issuesView = () => R.path(['main', 'issues'], getState())
 
 export const visibleIssuesView = () =>
   R.filter(
-    R.either(R.propEq('creatorId', userIdView()), R.prop('isPublic')),
+    issue =>
+      userIdView() === adminIdView() ||
+      R.propEq('creatorId', userIdView(), issue) ||
+      R.prop('isPublic', issue),
     issuesView(),
   )
 

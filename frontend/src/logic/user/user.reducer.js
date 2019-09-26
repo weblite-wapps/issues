@@ -11,6 +11,12 @@ const initialState = {
   wisId: '',
 }
 
+// const initialState = {
+//   userId: '123',
+//   adminId: '456',
+//   wisId: '',
+// }
+
 export const userIdView = () => R.path(['main', 'user', 'userId'], getState())
 export const adminIdView = () => R.path(['main', 'user', 'adminId'], getState())
 export const wisIdView = () => R.path(['main', 'user', 'wisId'], getState())

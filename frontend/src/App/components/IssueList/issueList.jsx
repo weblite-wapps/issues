@@ -6,6 +6,8 @@ import Issue from '../Issue/issue.container'
 import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import SearchIcon from '@material-ui/icons/Search'
+// consts
+import { HEADER_HEIGHT } from '../../../helpers/sizing'
 
 const IssueList = ({ issues }) => {
   return (
@@ -54,7 +56,7 @@ const IssueList = ({ issues }) => {
             position: 'fixed',
             width: '100%',
             top: '50px',
-            height: 'calc(100% - 96px)',
+            height: `calc(100% - ${HEADER_HEIGHT}px)`,
             color: '#bbbbbb',
             display: 'flex',
             alignItems: 'center',

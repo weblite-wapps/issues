@@ -45,6 +45,7 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
         onChange={e => onChange('title', e.target.value)}
         variant="outlined"
         placeholder="عنوان درخواست خود را وارد کنید"
+        // multiline
       />
 
       <p style={{ ...titlesStyle, ...fontStyle }}>متن درخواست</p>

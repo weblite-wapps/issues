@@ -16,6 +16,7 @@ import { dispatchSetSnackbarMessage } from '../../App/components/snackbar/snackb
 import { navigate } from '../../setup/history'
 // helpers
 import { getUsersInfo } from '../../helpers/weblite.api'
+import { scrollToBottom } from '../../App/components/IssuePage/issuePage.helper'
 
 export const reqNewComment = ({ comment, issueId }) =>
   post('newComment', {
@@ -26,7 +27,7 @@ export const reqNewComment = ({ comment, issueId }) =>
   })
     .then(({ data: { commentsCount, issueId } }) => {
       dispatchUpdateIssue(issueId, { commentsCount })
-      reqGetComments(issueId)
+      reqGetComments(issueId).then(scrollToBottom)
       dispatchSetSnackbarMessage({
         message: 'پاسخ شما با موفقیت ثبت شد',
         type: 'success',
@@ -48,7 +49,7 @@ export const reqNewComment = ({ comment, issueId }) =>
     })
 
 export const reqGetComments = issueId =>
-  get('getComments', { params: { issueId } })
+  get('getComments', { params: { issueId, wisId: wisIdView() } })
     .then(({ data: { comments } }) => {
       dispatchSetComments(comments)
       dispatchUpdateIssue(issueId, { commentsCount: comments.length })

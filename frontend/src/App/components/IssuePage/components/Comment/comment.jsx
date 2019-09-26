@@ -7,7 +7,7 @@ import { convertToPersianFormat } from '../../../../../helpers/date'
 
 const Comment = ({
   body,
-  date,
+  createdAt,
   fromAdmin,
   firstname,
   lastname,
@@ -75,7 +75,7 @@ const Comment = ({
             letterSpacing: '-0.07px',
           }}
         >
-          {convertToPersianFormat(new Date(date))}
+          {convertToPersianFormat(new Date(createdAt))}
         </Typography>
       </span>
     </div>

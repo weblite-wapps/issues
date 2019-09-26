@@ -2,48 +2,42 @@
 import { SET_COMMENTS } from './comments.actions'
 
 const initialState = []
-// [
+// const initialState = [
 //   {
-//     text:
+//     body:
 //       'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است',
 //     writerId: '123',
-//     body: 'falsnflnasf\nkajsfb asf\n',
-//     date: new Date(),
+//     createdAt: new Date(),
 //   },
 //   {
-//     text:
+//     body:
 //       'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است',
 //     writerId: '456',
-//     body: 'falsnflnasf\nkajsfb asf\n',
-//     date: new Date(),
+//     createdAt: new Date(),
 //   },
 //   {
-//     text:
+//     body:
 //       'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است',
 //     writerId: '123',
-//     body: 'falsnflnasf\nkajsfb asf\n',
-//     date: new Date(),
+//     createdAt: new Date(),
 //   },
 //   {
-//     text:
+//     body:
 //       'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است',
 //     writerId: '456',
-//     body: 'falsnflnasf\nkajsfb asf\n',
-//     date: new Date(),
+//     createdAt: new Date(),
 //   },
 //   {
-//     text:
+//     body:
 //       'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است',
 //     writerId: '123',
-//     body: 'falsnflnasf\nkajsfb asf\n',
-//     date: new Date(),
+//     createdAt: new Date(),
 //   },
 //   {
-//     text:
+//     body:
 //       'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است',
 //     writerId: '456',
-//     body: 'falsnflnasf\nkajsfb asf\n',
-//     date: new Date(),
+//     createdAt: new Date(),
 //   },
 // ]
 

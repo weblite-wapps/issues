@@ -10,3 +10,19 @@ body {
 .iranyekan {
   font-family: iranyekan !important;
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+} */
+
+::-webkit-scrollbar-thumb {
+  background: #818181;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(46, 44, 44, 0.774);
+}

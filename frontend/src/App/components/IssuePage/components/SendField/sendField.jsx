@@ -7,13 +7,20 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 // icons
 import SendIcon from '@material-ui/icons/Send'
 
-const SendField = ({ value, loading, onChange, onSend, onKeyDown }) => (
+const SendField = ({
+  value,
+  loading,
+  onChange,
+  onSend,
+  onKeyDown,
+  sendFieldHeight,
+}) => (
   <div
     style={{
       position: 'fixed',
       bottom: 0,
       width: '100%',
-      height: '50px',
+      height: sendFieldHeight,
       background: '#0D2154',
       display: 'flex',
       flexDirection: 'row',

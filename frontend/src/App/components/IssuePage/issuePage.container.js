@@ -13,7 +13,7 @@ import {
 import { getState } from '../../../setup/redux'
 
 const mapStateToProps = state => {
-  const { title, body, date, creatorId, issueId, isClosed } =
+  const { title, body, date, creatorId, issueId, isClosed, sendFieldHeight } =
     state.view.issuePage || {}
   return {
     title,
@@ -21,6 +21,7 @@ const mapStateToProps = state => {
     date,
     issueId,
     isClosed,
+    sendFieldHeight,
     comments: state.main.comments,
     canClose: userIdView() === adminIdView() || isClosed,
     canDelete: userIdView() === adminIdView() || userIdView() === creatorId,
