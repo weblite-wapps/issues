@@ -1,4 +1,5 @@
 // modules
+import * as R from 'ramda'
 import { connect } from 'react-redux'
 // components
 import NewIssue from './newIssue'
@@ -13,7 +14,7 @@ const mapStateToProps = state => state.view.newIssue
 const mapDispatchToProps = () => ({
   onChange: (field, value) => dispatchSetFieldValue({ field, value }),
   onSubmit: data => {
-    if (!(data.title && data.body)) {
+    if (!(R.trim(data.title) && R.trim(data.body))) {
       dispatchSetSnackbarMessage({
         message: 'عنوان و متن درخواست نباید خالی باشند',
         type: 'error',

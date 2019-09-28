@@ -23,7 +23,8 @@ const mapStateToProps = state => {
     isClosed,
     sendFieldHeight,
     comments: state.main.comments,
-    canClose: userIdView() === adminIdView() || isClosed,
+    canClose:
+      userIdView() === adminIdView() || userIdView() === creatorId || isClosed,
     canDelete: userIdView() === adminIdView() || userIdView() === creatorId,
   }
 }
