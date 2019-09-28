@@ -30,6 +30,7 @@ const IssuePage = ({
   return (
     <div
       style={{
+        width: '100%',
         height: '100%',
       }}
     >
@@ -42,8 +43,10 @@ const IssuePage = ({
           display: 'flex',
           flexDirection: 'column',
           top: `${HEADER_HEIGHT}px`,
-          bottom: `${sendFieldHeight}px`,
-          height: `calc(100% - ${HEADER_HEIGHT}px - ${sendFieldHeight}px)`,
+          width: '100%',
+          height: `calc(100% - ${HEADER_HEIGHT}px - ${
+            isClosed ? 0 : sendFieldHeight
+          }px)`,
         }}
       >
         <Typography
