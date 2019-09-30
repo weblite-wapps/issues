@@ -6,8 +6,8 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Comment from './components/Comment/comment.container'
 import SendField from './components/SendField/sendField.container'
+import ProfileInfo from './components/profileInfo/profileInfo'
 // helpers
-import { convertToPersianFormat } from '../../../helpers/date'
 import { HEADER_HEIGHT } from '../../../helpers/sizing'
 
 export let listRef = null
@@ -16,6 +16,9 @@ const IssuePage = ({
   title,
   body,
   date,
+  firstname,
+  lastname,
+  profileImage,
   issueId,
   isClosed,
   comments = [],
@@ -49,6 +52,15 @@ const IssuePage = ({
           }px)`,
         }}
       >
+        <ProfileInfo
+          createdAt={date}
+          firstname={firstname}
+          lastname={lastname}
+          profileImage={profileImage}
+          style={{
+            margin: '15px 20px 0 0',
+          }}
+        />
         <Typography
           className="iranyekan"
           style={{
@@ -59,7 +71,7 @@ const IssuePage = ({
             lineHeight: '25px',
             letterSpacing: '-0.1px',
             textAlign: 'right',
-            margin: '15px 20px 10px',
+            margin: '10px 20px 10px',
             padding: '5px 9px',
             borderRadius: '11px',
             overflowWrap: 'break-word',
@@ -88,20 +100,6 @@ const IssuePage = ({
           }}
         >
           {body}
-        </Typography>
-        <Typography
-          color="textSecondary"
-          className="iranyekan"
-          style={{
-            textAlign: 'right',
-            margin: '0 20px 10px',
-            fontSize: 10,
-            lineHeight: '17px',
-            letterSpacing: '-0.07px',
-            fontWeight: 'bold',
-          }}
-        >
-          {convertToPersianFormat(new Date(date))}
         </Typography>
         <div
           style={{
