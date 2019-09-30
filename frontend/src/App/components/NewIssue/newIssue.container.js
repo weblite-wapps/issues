@@ -16,7 +16,7 @@ const mapDispatchToProps = () => ({
   onSubmit: data => {
     if (!(R.trim(data.title) && R.trim(data.body))) {
       dispatchSetSnackbarMessage({
-        message: 'عنوان و متن درخواست نباید خالی باشند',
+        message: 'عنوان و متن سوال نباید خالی باشند',
         type: 'error',
       })
       return

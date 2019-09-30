@@ -50,9 +50,9 @@ const MyTabs = ({ selected }) => (
       variant="fullWidth"
       onChange={(_, value) => navigate(value)}
     >
-      <StyledTab label="درخواست جدید" value="new" />
-      <StyledTab label="درخواست های من" value="mine" />
-      <StyledTab label="همه درخواست ها" value="all" />
+      <StyledTab label="سوال جدید" value="new" />
+      <StyledTab label="سوال های من" value="mine" />
+      <StyledTab label="همه سوال ها" value="all" />
     </StyledTabs>
   </MuiAppBar>
 )

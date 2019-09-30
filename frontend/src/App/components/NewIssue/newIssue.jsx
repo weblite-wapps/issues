@@ -28,7 +28,7 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
         padding: '5px 15px',
       }}
     >
-      <p style={{ ...titlesStyle, ...fontStyle }}>عنوان درخواست</p>
+      <p style={{ ...titlesStyle, ...fontStyle }}>عنوان سوال</p>
       <TextField
         dir="rtl"
         style={{ width: '100%' }}
@@ -44,11 +44,11 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
         value={title}
         onChange={e => onChange('title', e.target.value)}
         variant="outlined"
-        placeholder="عنوان درخواست خود را وارد کنید"
+        placeholder="عنوان سوال خود را وارد کنید"
         // multiline
       />
 
-      <p style={{ ...titlesStyle, ...fontStyle }}>متن درخواست</p>
+      <p style={{ ...titlesStyle, ...fontStyle }}>متن سوال</p>
       <TextField
         dir="rtl"
         style={{ width: '100%' }}
@@ -63,10 +63,10 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
           },
         }}
         onChange={e => onChange('body', e.target.value)}
-        placeholder="متن درخواست خود را وارد کنید"
+        placeholder="متن سوال خود را وارد کنید"
       />
 
-      <p style={{ ...titlesStyle, ...fontStyle }}>نوع درخواست</p>
+      <p style={{ ...titlesStyle, ...fontStyle }}>نوع سوال</p>
       <ButtonGroup>
         <Button
           style={{
