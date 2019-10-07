@@ -14,7 +14,7 @@ import { getState } from '../../../../../setup/redux'
 import { isPhoneOrTablet } from '../../../../../helpers/device'
 
 const sendComment = () => {
-  const { issueId, sendFieldValue } = getState().view.issuePage || {}
+  const { creatorId, issueId, sendFieldValue } = getState().view.issuePage || {}
   if (!R.trim(sendFieldValue)) {
     dispatchSetSnackbarMessage({
       message: 'متن پاسخ نباید خالی باشد',
@@ -24,7 +24,7 @@ const sendComment = () => {
   }
   dispatchSetIssuePageData({ sendFieldLoading: true })
   dispatchSetIssuePageData({ sendFieldValue: '' })
-  reqNewComment({ comment: sendFieldValue, issueId })
+  reqNewComment({ comment: sendFieldValue, issueId, creatorId })
 }
 
 const mapStateToProps = state => ({

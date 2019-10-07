@@ -11,12 +11,13 @@ export default () => {
     W.setHooks({
       wappWillStart(start) {
         start()
-        W.loadData().then(({ user: { id }, creatorId: adminId }) => {
+        W.loadData().then(({ user: { id }, creator, creatorId: adminId }) => {
           getUsersInfo([id])
           dispatchSetUserData({
             userId: id,
             wisId: W.wisId,
             adminId,
+            isAdmin: creator,
           })
           reqGetAllIssues()
         })
@@ -36,7 +37,7 @@ export default () => {
     dispatchSetUserData({
       userId: '123',
       adminId: '456',
-      wisId: '',
+      wisId: 'wiswis',
     })
     reqGetAllIssues()
   }

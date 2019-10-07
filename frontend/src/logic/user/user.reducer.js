@@ -9,11 +9,13 @@ const initialState = {
   userId: '',
   adminId: '',
   wisId: '',
+  isAdmin: false,
 }
 
 export const userIdView = () => R.path(['main', 'user', 'userId'], getState())
 export const adminIdView = () => R.path(['main', 'user', 'adminId'], getState())
 export const wisIdView = () => R.path(['main', 'user', 'wisId'], getState())
+export const isAdminView = () => R.path(['main', 'user', 'isAdmin'], getState())
 
 const reducers = {
   [SET_USER_DATA]: (state, data) => ({ ...state, ...data }),
