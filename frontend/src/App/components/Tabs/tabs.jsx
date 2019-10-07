@@ -8,6 +8,7 @@ import Tab from '@material-ui/core/Tab'
 // helper
 import { navigate } from '../../../setup/history.js'
 
+const { W } = window
 const StyledTabs = withStyles({
   root: {
     backgroundColor: '#F0F0F0',
@@ -50,7 +51,10 @@ const MyTabs = ({ selected }) => (
     <StyledTabs
       value={selected}
       variant="fullWidth"
-      onChange={(_, value) => navigate(value)}
+      onChange={(_, value) => {
+        navigate(value)
+        W && W.analytics('CHANGE_TAB', { newTab: value })
+      }}
     >
       <StyledTab label="سوال جدید" value="new" />
       <StyledTab label="سوال های من" value="mine" />

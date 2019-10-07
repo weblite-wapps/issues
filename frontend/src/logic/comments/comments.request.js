@@ -18,7 +18,9 @@ import { navigate } from '../../setup/history'
 import { getUsersInfo } from '../../helpers/weblite.api'
 import { scrollToBottom } from '../../App/components/IssuePage/issuePage.helper'
 
-export const reqNewComment = ({ comment, issueId }) =>
+const { W } = window
+
+export const reqNewComment = ({ comment, issueId, creatorId }) =>
   post('newComment', {
     comment,
     issueId,
@@ -32,6 +34,15 @@ export const reqNewComment = ({ comment, issueId }) =>
         message: 'پاسخ شما با موفقیت ثبت شد',
         type: 'success',
       })
+      W &&
+        W.sendNotificationToUsers(
+          'پاسخی به سوال شما داده شده است',
+          '',
+          ['weblite'],
+          null,
+          [creatorId],
+        )
+      W && W.analytics('ADD_COMMENT')
     })
     .catch(({ response: { data: { errorCode } } }) => {
       dispatchSetSnackbarMessage({

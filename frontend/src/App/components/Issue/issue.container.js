@@ -12,6 +12,8 @@ import { getUsersInfo } from '../../../helpers/weblite.api'
 // requests
 import { reqGetComments } from '../../../logic/comments/comments.request'
 
+const { W } = window
+
 const mapDispatchToProps = (_, props) => ({
   onClick: () => {
     dispatchSetIssuePageData({ ...props, issueId: props._id })
@@ -19,6 +21,7 @@ const mapDispatchToProps = (_, props) => ({
     reqGetComments(props._id)
     getUsersInfo([props.creatorId])
     navigate('issue')
+    W && W.analytics('VISIT_ISSUE')
   },
 })
 

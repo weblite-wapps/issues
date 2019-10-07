@@ -13,13 +13,19 @@ import {
 import { dispatchSetComments } from '../comments/comments.actions'
 import { dispatchSetSnackbarMessage } from '../../App/components/snackbar/snackbar.actions'
 // views
-import { userIdView, wisIdView } from '../user/user.reducer'
+import {
+  userIdView,
+  wisIdView,
+  isAdminView,
+  adminIdView,
+} from '../user/user.reducer'
 // setup
 import { get, post } from '../../setup/request'
 import errorCodes from '../../setup/errorCodes'
 // helpers
 import { navigate } from '../../setup/history'
 
+const { W } = window
 export const reqCreateIssue = ({ title, body, isPublic }) =>
   post('createIssue', {
     title,
@@ -36,6 +42,16 @@ export const reqCreateIssue = ({ title, body, isPublic }) =>
         message: 'سوال با موفقیت ثبت شد',
         type: 'success',
       })
+      !isAdminView() &&
+        W &&
+        W.sendNotificationToUsers(
+          'سوالی از شما مطرح شده است',
+          'وپ آزمون',
+          ['push', 'weblite'],
+          {},
+          [adminIdView()],
+        )
+      W && W.analytics('ADD_ISSUE', { private: !isPublic })
     })
     .catch(console.log)
 
@@ -50,6 +66,7 @@ export const reqCloseIssue = issueId =>
         message: 'سوال با موفقیت بسته شد',
         type: 'success',
       })
+      W && W.analytics('CLOSE_ISSUE')
     })
     .catch(({ response: { data: { errorCode } } }) => {
       // TODO:
@@ -72,6 +89,7 @@ export const reqDeleteIssue = issueId =>
         message: 'سوال با موفقیت حذف شد',
         type: 'success',
       })
+      W && W.analytics('DELETE_ISSUE')
     })
     .catch(console.log)
 
