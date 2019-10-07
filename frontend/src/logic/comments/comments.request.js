@@ -37,7 +37,7 @@ export const reqNewComment = ({ comment, issueId, creatorId }) =>
       W &&
         W.sendNotificationToUsers(
           'پاسخی به سوال شما داده شده است',
-          null,
+          '',
           ['weblite'],
           null,
           [creatorId],

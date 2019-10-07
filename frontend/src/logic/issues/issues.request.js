@@ -13,7 +13,12 @@ import {
 import { dispatchSetComments } from '../comments/comments.actions'
 import { dispatchSetSnackbarMessage } from '../../App/components/snackbar/snackbar.actions'
 // views
-import { userIdView, wisIdView, isAdminView } from '../user/user.reducer'
+import {
+  userIdView,
+  wisIdView,
+  isAdminView,
+  adminIdView,
+} from '../user/user.reducer'
 // setup
 import { get, post } from '../../setup/request'
 import errorCodes from '../../setup/errorCodes'
@@ -39,11 +44,12 @@ export const reqCreateIssue = ({ title, body, isPublic }) =>
       })
       !isAdminView() &&
         W &&
-        W.sendNotificationToAdmins(
+        W.sendNotificationToUsers(
           'سوالی از شما مطرح شده است',
-          null,
+          'وپ آزمون',
           ['push', 'weblite'],
-          null,
+          {},
+          [adminIdView()],
         )
       W && W.analytics('ADD_ISSUE', { private: !isPublic })
     })
