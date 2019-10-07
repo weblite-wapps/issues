@@ -34,7 +34,15 @@ export const reqNewComment = ({ comment, issueId, creatorId }) =>
         message: 'پاسخ شما با موفقیت ثبت شد',
         type: 'success',
       })
-      W && W.sendNotificationToUsers(creatorId)
+      W &&
+        W.sendNotificationToUsers(
+          'پاسخی به سوال شما داده شده است',
+          null,
+          ['weblite'],
+          null,
+          [creatorId],
+        )
+      W && W.analytics('ADD_COMMENT')
     })
     .catch(({ response: { data: { errorCode } } }) => {
       dispatchSetSnackbarMessage({

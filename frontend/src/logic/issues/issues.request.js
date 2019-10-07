@@ -37,7 +37,15 @@ export const reqCreateIssue = ({ title, body, isPublic }) =>
         message: 'سوال با موفقیت ثبت شد',
         type: 'success',
       })
-      !isAdminView() && W && W.sendNotificationToAdmins()
+      !isAdminView() &&
+        W &&
+        W.sendNotificationToAdmins(
+          'سوالی از شما مطرح شده است',
+          null,
+          ['push', 'weblite'],
+          null,
+        )
+      W && W.analytics('ADD_ISSUE', { private: !isPublic })
     })
     .catch(console.log)
 
@@ -52,6 +60,7 @@ export const reqCloseIssue = issueId =>
         message: 'سوال با موفقیت بسته شد',
         type: 'success',
       })
+      W && W.analytics('CLOSE_ISSUE')
     })
     .catch(({ response: { data: { errorCode } } }) => {
       // TODO:
@@ -74,6 +83,7 @@ export const reqDeleteIssue = issueId =>
         message: 'سوال با موفقیت حذف شد',
         type: 'success',
       })
+      W && W.analytics('DELETE_ISSUE')
     })
     .catch(console.log)
 

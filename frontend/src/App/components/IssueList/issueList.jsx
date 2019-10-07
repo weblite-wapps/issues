@@ -1,5 +1,4 @@
 // modules
-import * as R from 'ramda'
 import React from 'react'
 // components
 import Issue from '../Issue/issue.container'
@@ -49,7 +48,7 @@ const IssueList = ({ issues }) => {
         placeholder="جست و جو کنید"
       />
       {issues.length ? (
-        R.map(item => <Issue {...item} />, issues)
+        issues.map((item, index) => <Issue key={index} {...item} />, issues)
       ) : (
         <div
           style={{
