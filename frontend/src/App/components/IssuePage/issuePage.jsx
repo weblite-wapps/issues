@@ -21,6 +21,7 @@ const IssuePage = ({
   profileImage,
   issueId,
   isClosed,
+  isPublic,
   comments = [],
   canClose,
   canDelete,
@@ -57,6 +58,7 @@ const IssuePage = ({
           firstname={firstname}
           lastname={lastname}
           profileImage={profileImage}
+          isPrivate={!isPublic}
           style={{
             margin: '15px 20px 0 0',
           }}

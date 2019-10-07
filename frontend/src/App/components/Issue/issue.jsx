@@ -11,7 +11,7 @@ const statusMap = isClosed =>
     ? { text: 'بسته شده', color: '#d65555' }
     : { text: 'در جریان', color: '#9bd655' }
 
-const Issue = ({ title, commentsCount, isClosed, date, onClick }) => (
+const Issue = ({ title, commentsCount, isClosed, isPublic, date, onClick }) => (
   <Button
     style={{
       width: 'calc(100% - 40px)',
@@ -40,35 +40,64 @@ const Issue = ({ title, commentsCount, isClosed, date, onClick }) => (
             alignItems: 'center',
           }}
         >
-          <span
+          <div
             style={{
-              maxWidth: 50,
-              minWidth: 50,
-              height: 20,
-              padding: '0 5px',
-              background: '#ccc',
-              borderRadius: '10px',
               display: 'flex',
               flexDirection: 'row',
-              justifyContent: 'space-around',
+              justifyContent: 'space-between',
               alignItems: 'center',
-              boxSizing: 'border-box',
             }}
           >
-            <Typography
-              className="iranyekan"
+            <span
               style={{
-                fontSize: 12,
-                fontWeight: 'bold',
-                lineHeight: '21px',
-                letterSpacing: '-0.08px',
-                color: 'white',
+                maxWidth: 50,
+                minWidth: 50,
+                height: 20,
+                padding: '0 5px',
+                background: '#ccc',
+                borderRadius: '10px',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+                alignItems: 'center',
+                boxSizing: 'border-box',
               }}
             >
-              {toPersianNumber(commentsCount)}
-            </Typography>
-            <img alt="commentIcon" src="speech.svg"></img>
-          </span>
+              <Typography
+                className="iranyekan"
+                style={{
+                  fontSize: 12,
+                  fontWeight: 'bold',
+                  lineHeight: '21px',
+                  letterSpacing: '-0.08px',
+                  color: 'white',
+                }}
+              >
+                {toPersianNumber(commentsCount)}
+              </Typography>
+              <img alt="commentIcon" src="speech.svg"></img>
+            </span>
+            {!isPublic && (
+              <span
+                style={{
+                  maxWidth: 20,
+                  minWidth: 20,
+                  height: 20,
+                  padding: '0 5px',
+                  background: '#ccc',
+                  borderRadius: '10px',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'space-around',
+                  alignItems: 'center',
+                  boxSizing: 'border-box',
+                  marginLeft: 5,
+                }}
+              >
+                <img alt="lockIcon" src="lock.svg"></img>
+              </span>
+            )}
+          </div>
           <Typography
             className="iranyekan"
             color="textSecondary"

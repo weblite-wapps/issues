@@ -9,19 +9,6 @@ const initialState = []
 
 export const issuesView = () => R.path(['main', 'issues'], getState())
 
-// export const issuesView = () =>
-//   R.range(1, 15).map(i => ({
-//     id: i,
-//     title:
-//       ' مشکل سرمایش و گرمایش مشکل سرمایش و گرمایش مشکل سرمایش و گرمایشمشکل سرمایش و گرمایش',
-//     body:
-//       'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه مجله در ستون و سطر آنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد',
-//     commentsCount: i,
-//     isClosed: false,
-//     date: new Date(),
-//     creatorId: i % 2 === 0 ? '123' : '456',
-//   }))
-
 export const visibleIssuesView = () =>
   R.filter(
     issue =>

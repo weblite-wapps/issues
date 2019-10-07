@@ -14,8 +14,16 @@ import { getState } from '../../../setup/redux'
 import * as R from 'ramda'
 
 const mapStateToProps = state => {
-  const { title, body, date, creatorId, issueId, isClosed, sendFieldHeight } =
-    state.view.issuePage || {}
+  const {
+    title,
+    body,
+    date,
+    creatorId,
+    issueId,
+    isClosed,
+    isPublic,
+    sendFieldHeight,
+  } = state.view.issuePage || {}
 
   const creatorUser = state.main.users[creatorId || '']
   const profileImage = R.prop('profileImage', creatorUser)
@@ -34,6 +42,7 @@ const mapStateToProps = state => {
       : '',
     issueId,
     isClosed,
+    isPublic,
     sendFieldHeight,
     comments: state.main.comments,
     canClose:

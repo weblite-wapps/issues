@@ -11,6 +11,7 @@ const ProfileInfo = ({
   firstname,
   lastname,
   profileImage,
+  isPrivate,
   style,
 }) => (
   <div
@@ -75,7 +76,9 @@ const ProfileInfo = ({
           letterSpacing: '-0.07px',
         }}
       >
-        {convertToPersianFormat(new Date(createdAt))}
+        {`${convertToPersianFormat(new Date(createdAt))}${
+          isPrivate ? ' - خصوصی' : ''
+        }`}
       </Typography>
     </span>
   </div>
