@@ -46,7 +46,7 @@ export const reqCreateIssue = ({ title, body, isPublic }) =>
         W &&
         W.sendNotificationToUsers(
           'سوالی از شما مطرح شده است',
-          'وپ آزمون',
+          'وپ سوال',
           ['push', 'weblite'],
           {},
           [adminIdView()],
