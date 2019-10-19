@@ -70,7 +70,7 @@ const SendField = ({
         onKeyDown,
         style: {
           minHeight: 30,
-          fontSize: '12px',
+          fontSize: '16px',
           lineHeight: '21px',
           letterSpacing: '-0.08px',
           fontFamily: 'iranyekan',

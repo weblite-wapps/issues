@@ -12,7 +12,7 @@ const titlesStyle = {
 }
 
 const fontStyle = {
-  fontSize: '12px',
+  fontSize: '16px',
   lineHeight: '21px',
   letterSpacing: '-0.08px',
   fontFamily: 'iranyekan',
@@ -35,7 +35,6 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
         inputProps={{
           style: {
             padding: '0 14px',
-            fontSize: '12px',
             height: '35px',
             ...fontStyle,
           },
@@ -58,7 +57,7 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
         variant="outlined"
         InputProps={{
           style: {
-            fontSize: '12px',
+            fontSize: '16px',
             ...fontStyle,
           },
         }}
