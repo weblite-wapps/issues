@@ -143,7 +143,6 @@ const Issue = ({
             lineHeight: '25px',
             letterSpacing: '-0.1px',
             textAlign: 'right',
-            textOverflow: 'ellipsis',
             marginTop: 2,
           }}
         >
