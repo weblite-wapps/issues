@@ -11,7 +11,15 @@ const statusMap = isClosed =>
     ? { text: 'بسته شده', color: '#d65555' }
     : { text: 'در جریان', color: '#9bd655' }
 
-const Issue = ({ title, commentsCount, isClosed, isPublic, date, onClick }) => (
+const Issue = ({
+  title,
+  body,
+  commentsCount,
+  isClosed,
+  isPublic,
+  date,
+  onClick,
+}) => (
   <Button
     style={{
       width: 'calc(100% - 40px)',
@@ -126,6 +134,20 @@ const Issue = ({ title, commentsCount, isClosed, isPublic, date, onClick }) => (
           }}
         >
           {title}
+        </Typography>
+        <Typography
+          className="iranyekan"
+          noWrap
+          style={{
+            fontSize: 14,
+            lineHeight: '25px',
+            letterSpacing: '-0.1px',
+            textAlign: 'right',
+            textOverflow: 'ellipsis',
+            marginTop: 2,
+          }}
+        >
+          {body}
         </Typography>
       </span>
       <div
