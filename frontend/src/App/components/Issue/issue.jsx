@@ -137,6 +137,7 @@ const Issue = ({
         </Typography>
         <Typography
           className="iranyekan"
+          dir="auto"
           noWrap
           style={{
             fontSize: 14,
