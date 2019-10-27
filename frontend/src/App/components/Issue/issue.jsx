@@ -140,7 +140,7 @@ const Issue = ({
           dir="auto"
           noWrap
           style={{
-            fontSize: 14,
+            fontSize: 12,
             lineHeight: '25px',
             letterSpacing: '-0.1px',
             textAlign: 'right',
