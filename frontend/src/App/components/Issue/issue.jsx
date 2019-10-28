@@ -8,8 +8,8 @@ import { convertToPersianFormat, toPersianNumber } from '../../../helpers/date'
 
 const statusMap = isClosed =>
   isClosed
-    ? { text: 'بسته شده', color: '#d65555' }
-    : { text: 'در جریان', color: '#9bd655' }
+    ? { text: 'بسته شده', color: '#E6494F' }
+    : { text: 'در جریان', color: '#68D200' }
 
 const Issue = ({
   title,

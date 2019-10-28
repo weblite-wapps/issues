@@ -121,7 +121,7 @@ const IssuePage = ({
             <Button
               onClick={onDeleteIssue}
               style={{
-                background: '#D65555',
+                background: '#E6494F',
                 color: 'white',
                 borderRadius: '11px',
                 width: '100%',
@@ -140,7 +140,7 @@ const IssuePage = ({
               onClick={onCloseIssue}
               disabled={isClosed}
               style={{
-                background: isClosed ? '#CCCCCC' : '#EDCB11',
+                background: isClosed ? '#CCCCCC' : '#F2CB00',
                 color: 'white',
                 borderRadius: '11px',
                 width: '100%',

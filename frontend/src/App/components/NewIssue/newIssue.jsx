@@ -78,7 +78,7 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
             fontWeight: 'bold',
             color: 'white',
             borderRadius: '11px 0px 0px 11px',
-            background: isPublic ? '#CCCCCC' : '#7DD9DE',
+            background: isPublic ? '#CCCCCC' : '#5ADBDF',
             ...fontStyle,
           }}
           onClick={() => onChange('isPublic', false)}
@@ -96,7 +96,7 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
             fontWeight: 'bold',
             color: 'white',
             borderRadius: '0px 11px 11px 0px',
-            background: isPublic ? '#7DD9DE' : '#CCCCCC',
+            background: isPublic ? '#5ADBDF' : '#CCCCCC',
             ...fontStyle,
           }}
           onClick={() => onChange('isPublic', true)}
@@ -121,7 +121,7 @@ const NewIssue = ({ title, body, onChange, onSubmit, loading, isPublic }) => {
           width: '100%',
           height: '40px',
           borderRadius: 0,
-          background: '#7DD9DE',
+          background: '#5ADBDF',
           color: 'white',
           fontSize: '16px',
           fontWeight: 'bold',
