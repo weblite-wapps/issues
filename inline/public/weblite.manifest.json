@@ -1,0 +1,16 @@
+{
+  "name": "تک-سوال",
+  "id": "5db84702c482770534e2584a",
+  "instantiable": true,
+  "creator": true,
+  "userInfo": true,
+  "fullscreen": false,
+  "inline": true,
+  "searchable": true,
+  "width": 320,
+  "height": 400,
+  "servIndexes": {
+    "inline": "index"
+  },
+  "version": "0.0.1"
+}

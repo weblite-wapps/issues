@@ -3,11 +3,16 @@ import { connect } from 'react-redux'
 // components
 import IssuePage from './issuePage'
 // views
-import { userIdView, adminIdView } from '../../../logic/user/user.reducer'
+import {
+  userIdView,
+  adminIdView,
+  isAdminView,
+} from '../../../logic/user/user.reducer'
 // requests
 import {
   reqCloseIssue,
   reqDeleteIssue,
+  shareIssue,
 } from '../../../logic/issues/issues.request'
 // redux
 import { getState } from '../../../setup/redux'
@@ -45,6 +50,7 @@ const mapStateToProps = state => {
     isPublic,
     sendFieldHeight,
     comments: state.main.comments,
+    isAdmin: isAdminView(),
     canClose:
       userIdView() === adminIdView() || userIdView() === creatorId || isClosed,
     canDelete: userIdView() === adminIdView() || userIdView() === creatorId,
@@ -59,6 +65,10 @@ const mapDispatchToProps = () => ({
   onDeleteIssue: () => {
     const { issueId } = getState().view.issuePage || {}
     reqDeleteIssue(issueId)
+  },
+  onShareIssue: () => {
+    const { issueId } = getState().view.issuePage || {}
+    shareIssue(issueId)
   },
 })
 

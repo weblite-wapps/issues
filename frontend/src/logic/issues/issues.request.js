@@ -101,3 +101,13 @@ export const reqGetAllIssues = () =>
   })
     .then(({ data: { issues } }) => dispatchSetIssues(issues))
     .catch(console.log)
+
+export const shareIssue = issueId => {
+  console.log('issueId in main ', issueId)
+  W.sendMessageToCurrentChat('wapp', {
+    wappId: '5db84702c482770534e2584a',
+    wisId: '',
+    customize: { issueId },
+  })
+  W.analytics('SHARE_ISSUE')
+}
