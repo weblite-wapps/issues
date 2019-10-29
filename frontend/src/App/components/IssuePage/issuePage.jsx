@@ -22,10 +22,12 @@ const IssuePage = ({
   issueId,
   isClosed,
   isPublic,
+  isAdmin,
   comments = [],
   canClose,
   canDelete,
   onCloseIssue,
+  onShareIssue,
   onDeleteIssue,
   sendFieldHeight,
 }) => {
@@ -153,6 +155,25 @@ const IssuePage = ({
               }}
             >
               {isClosed ? 'بسته شده' : 'بستن سوال'}
+            </Button>
+          )}
+          {isAdmin && (
+            <Button
+              onClick={onShareIssue}
+              style={{
+                background: '#4FC4F4',
+                color: 'white',
+                borderRadius: '11px',
+                width: '100%',
+                fontWeight: 'bold',
+                fontSize: '12px',
+                lineHeight: '21px',
+                marginLeft: canDelete && '10px',
+                letterSpacing: '-0.08px',
+                fontFamily: 'iranyekan',
+              }}
+            >
+              اشتراک سوال
             </Button>
           )}
         </div>
