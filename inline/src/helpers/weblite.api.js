@@ -11,10 +11,9 @@ export default () => {
       wappWillStart(start) {
         start()
         W.loadData().then(
-          ({ user: { id: userId }, customize: { issueId } }) => {
-            console.log('inline issueId ', issueId)
+          ({ user: { id: userId }, customize: { issueId, wisId } }) => {
             reqGetIssue(issueId)
-            dispatchSetUserData({ userId, wisId: W.wisId })
+            dispatchSetUserData({ userId, wisId: W.wisId, senderWisId: wisId })
           },
         )
       },
@@ -23,6 +22,7 @@ export default () => {
     dispatchSetUserData({
       userId: '123',
       wisId: 'wis123',
+      senderWisId: 'sender123',
     })
     reqGetIssue('5db477a400f0c37b866c6911')
   }

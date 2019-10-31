@@ -9,7 +9,7 @@ const { W } = window
 export default () => {
   if (W)
     W.setHooks({
-      wappWillStart(start) {
+      wappWillStart(start, err, { args }) {
         start()
         W.loadData().then(({ user: { id }, creator, creatorId: adminId }) => {
           getUsersInfo([id])
@@ -19,7 +19,7 @@ export default () => {
             adminId,
             isAdmin: creator,
           })
-          reqGetAllIssues()
+          reqGetAllIssues((args && args.issueId) || undefined)
         })
       },
     })

@@ -1,3 +1,4 @@
+import * as R from 'ramda'
 // actions
 import {
   dispatchAddNewIssue,
@@ -24,6 +25,10 @@ import { get, post } from '../../setup/request'
 import errorCodes from '../../setup/errorCodes'
 // helpers
 import { navigate } from '../../setup/history'
+import { issuesView } from './issues.reducer'
+import { getState } from '../../setup/redux'
+import { reqGetComments } from '../comments/comments.request'
+import { getUsersInfo } from '../../helpers/weblite.api'
 
 const { W } = window
 export const reqCreateIssue = ({ title, body, isPublic }) =>
@@ -93,20 +98,32 @@ export const reqDeleteIssue = issueId =>
     })
     .catch(console.log)
 
-export const reqGetAllIssues = () =>
+export const reqGetAllIssues = issueId => {
   get('getAllIssues', {
     params: {
       wisId: wisIdView(),
     },
   })
-    .then(({ data: { issues } }) => dispatchSetIssues(issues))
+    .then(({ data: { issues } }) => {
+      dispatchSetIssues(issues)
+    })
+    .then(() => {
+      if (issueId) {
+        const issue = R.find(R.propEq('_id', issueId), issuesView())
+        dispatchSetIssuePageData({ ...issue, issueId: issue._id })
+        dispatchSetComments([])
+        reqGetComments(issue._id)
+        getUsersInfo([issue.creatorId])
+        navigate('issue')
+      }
+    })
     .catch(console.log)
-
+}
 export const shareIssue = issueId => {
   W.sendMessageToCurrentChat('wapp', {
     wappId: '5db84702c482770534e2584a',
     wisId: '',
-    customize: { issueId },
+    customize: { issueId, wisId: W.wisId },
   })
   W.analytics('SHARE_ISSUE')
 }

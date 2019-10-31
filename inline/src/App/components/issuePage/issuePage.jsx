@@ -111,15 +111,8 @@ const useStyles = makeStyles(() => ({
 }))
 
 const IssuePage = ({
-  issue: {
-    date: status,
-    title,
-    body,
-    commentsCount: count,
-    isClosed,
-    onShowIssue,
-    fromMe,
-  },
+  issue: { date: status, title, body, commentsCount: count, isClosed, fromMe },
+  onShowIssue,
 }) => {
   const classes = useStyles()
   return (
@@ -132,7 +125,7 @@ const IssuePage = ({
             ab(classes.headerClosed)(isClosed),
           )}
         >
-          ســــــــــــــوال
+          11ســــــــــــــوال
         </Typography>
         <div className={classes.headerImageBox}>
           <img
@@ -173,7 +166,6 @@ const IssuePage = ({
         >
           {body}
         </Typography>
-
         <div className={classes.footer}>
           <Button
             onClick={onShowIssue}
@@ -182,6 +174,7 @@ const IssuePage = ({
           >
             مشاهده سوال
           </Button>
+
           <div
             className={cns(classes.issueInformationBadge, classes.statusText)}
           >
