@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 // helper
-import { cns, toPersian } from '../../../helpers/utils'
+import { cns, ab, toPersian } from '../../../helpers/utils'
 
 const useStyles = makeStyles(() => ({
   issueComponent: {
@@ -28,6 +28,9 @@ const useStyles = makeStyles(() => ({
     lineHeight: '34px',
     borderTopLeftRadius: 15,
   },
+  headerClosed: {
+    backgroundColor: '#e6494f',
+  },
   headerImageBox: {
     height: 77,
     width: 84,
@@ -40,11 +43,16 @@ const useStyles = makeStyles(() => ({
   },
   body: {
     backgroundColor: '#fff',
-    borderBottomLeftRadius: 15,
     padding: '10px 8px 12px',
   },
+  fromMe: {
+    borderBottomLeftRadius: 15,
+  },
+  fromOther: {
+    borderBottomRightRadius: 15,
+  },
+  
   // text
-  text: '',
   statusText: {
     fontSize: 10,
     fontWeight: 'bold',
@@ -102,12 +110,12 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-const IssuePage = ({ status, title, body, count }) => {
+const IssuePage = ({ status, title, body, count, isClosed, onShowIssue, fromMe }) => {
   const classes = useStyles()
   return (
     <div className={classes.issueComponent}>
       <div className={classes.header}>
-        <Typography align="center" className={classes.headerTitle}>
+        <Typography align="center" className={cns(classes.headerTitle, ab(classes.headerClosed)(isClosed))}>
           ســــــــــــــوال
         </Typography>
         <div className={classes.headerImageBox}>
@@ -119,7 +127,7 @@ const IssuePage = ({ status, title, body, count }) => {
         </div>
       </div>
 
-      <div className={classes.body}>
+      <div className={cns(classes.body, fromMe ? classes.fromMe : classes.fromOther)}>
         <Typography
           align="right"
           noWrap
@@ -147,7 +155,7 @@ const IssuePage = ({ status, title, body, count }) => {
         </Typography>
 
         <div className={classes.footer}>
-          <Button className={classes.showIssueButton} variant="contained">
+          <Button onClick={onShowIssue} className={classes.showIssueButton} variant="contained">
             مشاهده سوال
           </Button>
           <div
@@ -167,12 +175,18 @@ IssuePage.propTypes = {
   title: PropTypes.string,
   body: PropTypes.string,
   count: PropTypes.number,
+  isClosed: PropTypes.bool,
+  onShowIssue: PropTypes.func,
+  fromMe: PropTypes.bool,
 }
 IssuePage.defaultProps = {
   status: 'سه شنبه ۲۶ شهریور - ۱۴:۲۳',
   title: 'مشکل سرمایش و گرمایش',
   body: 'لورم ایپسوم متن ساختگی با تولید',
   count: 1,
+  isClosed: false,
+  onShowIssue: Function.prototype,
+  fromMe: false,
 }
 
 export default IssuePage

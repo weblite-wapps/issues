@@ -19,3 +19,6 @@ export const toPersian = text => {
     parseInt(num, 10).toLocaleString('fa-IR'),
   )
 }
+
+
+export const ab = className => test => test ? className : ''

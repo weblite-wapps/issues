@@ -6,11 +6,11 @@
   "userInfo": true,
   "fullscreen": false,
   "inline": true,
-  "searchable": true,
-  "width": 320,
-  "height": 400,
+  "searchable": false,
+  "width": 240,
+  "height": 187,
   "servIndexes": {
     "inline": "index"
   },
-  "version": "0.0.1"
+  "version": "0.0.13"
 }
