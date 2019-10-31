@@ -6,8 +6,9 @@ import './issuePage.css'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
-// helper
+// helpers
 import { cns, ab, toPersian } from '../../../helpers/utils'
+import { convertToPersianFormat } from '../../../helpers/date'
 
 const useStyles = makeStyles(() => ({
   issueComponent: {
@@ -111,10 +112,12 @@ const useStyles = makeStyles(() => ({
 }))
 
 const IssuePage = ({
-  issue: { date: status, title, body, commentsCount: count, isClosed, fromMe },
+  issue: { date, title, body, commentsCount: count, isClosed, fromMe },
   onShowIssue,
 }) => {
   const classes = useStyles()
+  console.log(date)
+
   return (
     <div className={classes.issueComponent}>
       <div className={classes.header}>
@@ -125,7 +128,7 @@ const IssuePage = ({
             ab(classes.headerClosed)(isClosed),
           )}
         >
-          11ســــــــــــــوال
+          ســــــــــــــوال
         </Typography>
         <div className={classes.headerImageBox}>
           <img
@@ -148,7 +151,7 @@ const IssuePage = ({
           dir="rtl"
           className={classes.statusText}
         >
-          {status}
+          {convertToPersianFormat(new Date(date))}
         </Typography> */}
         <Typography
           dir="auto"
