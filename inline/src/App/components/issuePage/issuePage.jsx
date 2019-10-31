@@ -51,7 +51,7 @@ const useStyles = makeStyles(() => ({
   fromOther: {
     borderBottomRightRadius: 15,
   },
-  
+
   // text
   statusText: {
     fontSize: 10,
@@ -110,12 +110,28 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-const IssuePage = ({ status, title, body, count, isClosed, onShowIssue, fromMe }) => {
+const IssuePage = ({
+  issue: {
+    date: status,
+    title,
+    body,
+    commentsCount: count,
+    isClosed,
+    onShowIssue,
+    fromMe,
+  },
+}) => {
   const classes = useStyles()
   return (
     <div className={classes.issueComponent}>
       <div className={classes.header}>
-        <Typography align="center" className={cns(classes.headerTitle, ab(classes.headerClosed)(isClosed))}>
+        <Typography
+          align="center"
+          className={cns(
+            classes.headerTitle,
+            ab(classes.headerClosed)(isClosed),
+          )}
+        >
           ســــــــــــــوال
         </Typography>
         <div className={classes.headerImageBox}>
@@ -127,18 +143,22 @@ const IssuePage = ({ status, title, body, count, isClosed, onShowIssue, fromMe }
         </div>
       </div>
 
-      <div className={cns(classes.body, fromMe ? classes.fromMe : classes.fromOther)}>
-        <Typography
+      <div
+        className={cns(
+          classes.body,
+          fromMe ? classes.fromMe : classes.fromOther,
+        )}
+      >
+        {/* <Typography
           align="right"
           noWrap
           dir="rtl"
           className={classes.statusText}
         >
           {status}
-        </Typography>
-
+        </Typography> */}
         <Typography
-          dir="rtl"
+          dir="auto"
           align="right"
           noWrap
           className={classes.titleText}
@@ -146,7 +166,7 @@ const IssuePage = ({ status, title, body, count, isClosed, onShowIssue, fromMe }
           {title}
         </Typography>
         <Typography
-          dir="rtl"
+          dir="auto"
           align="right"
           noWrap
           className={classes.questionText}
@@ -155,7 +175,11 @@ const IssuePage = ({ status, title, body, count, isClosed, onShowIssue, fromMe }
         </Typography>
 
         <div className={classes.footer}>
-          <Button onClick={onShowIssue} className={classes.showIssueButton} variant="contained">
+          <Button
+            onClick={onShowIssue}
+            className={classes.showIssueButton}
+            variant="contained"
+          >
             مشاهده سوال
           </Button>
           <div

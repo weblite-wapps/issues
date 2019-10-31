@@ -13,9 +13,7 @@ import store from '../../setup/redux'
 
 const App = () => (
   <Provider store={store}>
-    <MuiThemeProvider theme={theme}>
-      <IssuePage />
-    </MuiThemeProvider>
+    <MuiThemeProvider theme={theme}>{<IssuePage />}</MuiThemeProvider>
   </Provider>
 )
 

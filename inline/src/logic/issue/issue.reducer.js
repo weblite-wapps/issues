@@ -6,8 +6,8 @@ import { SET_ISSUE } from './issue.action'
 
 const initialState = {}
 
-// export const issueView = () => R.path(['issue'], getState())
-// export const issueIdView = () => R.path(['issue', 'issueId'], getState())
+export const issueView = () => R.path([' issue'], getState())
+export const issueIdView = () => R.path(['issue', 'issueId'], getState())
 
 const reducers = {
   [SET_ISSUE]: (_, issue) => issue,

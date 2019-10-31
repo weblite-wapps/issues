@@ -1,7 +1,7 @@
 // modules
-import { createStore, combineReducers, compose } from 'redux'
+import { createStore, compose } from 'redux'
 // reducers
-import reducers from '../logic/main/main.reducer'
+import reducers from './../logic/main/main.reducer'
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers =
@@ -10,7 +10,7 @@ const composeEnhancers =
     : compose
 /* eslint-enable */
 
-const store = createStore(combineReducers(reducers), composeEnhancers())
+const store = createStore(reducers, composeEnhancers())
 
 export default store
 export const { dispatch, getState } = store

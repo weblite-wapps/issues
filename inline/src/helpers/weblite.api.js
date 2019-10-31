@@ -12,7 +12,7 @@ export default () => {
         start()
         W.loadData().then(
           ({ user: { id: userId }, customize: { issueId } }) => {
-            console.log('issueId ', issueId)
+            console.log('inline issueId ', issueId)
             reqGetIssue(issueId)
             dispatchSetUserData({ userId, wisId: W.wisId })
           },

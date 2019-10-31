@@ -1,14 +1,22 @@
 // modules
 import { connect } from 'react-redux'
-
 // components
 import IssuePage from './issuePage'
-import { issueView } from '../../../logic/issue/issue.reducer'
 
-// views
+// W
+const W = window.W
 
-const mapStateToProps = () => ({
-  // issue: issueView(),
+const mapStateToProps = state => ({
+  issue: state.issue,
+  userId: state.user.userId,
 })
 
-export default connect(mapStateToProps)(IssuePage)
+const mapDispatchToProps = () => ({
+  onShowIssue: () =>
+    W && W.runWapp('main', '5d8b97e38f1caa56a175a827', undefined),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(IssuePage)

@@ -103,7 +103,6 @@ export const reqGetAllIssues = () =>
     .catch(console.log)
 
 export const shareIssue = issueId => {
-  console.log('issueId in main ', issueId)
   W.sendMessageToCurrentChat('wapp', {
     wappId: '5db84702c482770534e2584a',
     wisId: '',
