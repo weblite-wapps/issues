@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 // helper
 import { cns, ab, toPersian } from '../../../helpers/utils'
+import { convertToPersianFormat } from '../../../helpers/date'
 
 const useStyles = makeStyles(() => ({
   issueComponent: {
@@ -111,7 +112,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 const IssuePage = ({
-  issue: { date: status, title, body, commentsCount: count, isClosed, fromMe },
+  issue: { date, title, body, commentsCount: count, isClosed, fromMe },
   onShowIssue,
 }) => {
   const classes = useStyles()
@@ -142,14 +143,14 @@ const IssuePage = ({
           fromMe ? classes.fromMe : classes.fromOther,
         )}
       >
-        {/* <Typography
+        <Typography
           align="right"
           noWrap
           dir="rtl"
           className={classes.statusText}
         >
-          {status}
-        </Typography> */}
+          {date && convertToPersianFormat(new Date(date))}
+        </Typography>
         <Typography
           dir="auto"
           align="right"
@@ -167,13 +168,15 @@ const IssuePage = ({
           {body}
         </Typography>
         <div className={classes.footer}>
-          <Button
-            onClick={onShowIssue}
-            className={classes.showIssueButton}
-            variant="contained"
-          >
-            مشاهده سوال
-          </Button>
+          {date && (
+            <Button
+              onClick={onShowIssue}
+              className={classes.showIssueButton}
+              variant="contained"
+            >
+              مشاهده سوال
+            </Button>
+          )}
 
           <div
             className={cns(classes.issueInformationBadge, classes.statusText)}
