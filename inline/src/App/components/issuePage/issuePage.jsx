@@ -78,7 +78,7 @@ const useStyles = makeStyles(() => ({
   footer: {
     display: 'flex',
     justifyContent: 'space-between',
-    margin: '0 10px',
+    margin: '6px 10px 0',
     alignItems: 'flex-end',
   },
   showIssueButton: {
@@ -112,11 +112,11 @@ const useStyles = makeStyles(() => ({
 }))
 
 const IssuePage = ({
-  issue: { date, title, body, commentsCount: count, isClosed, fromMe },
+  issue: { date: status, title, body, commentsCount: count, isClosed, fromMe },
   onShowIssue,
 }) => {
   const classes = useStyles()
-  console.log(date)
+  console.log(typeof(date))
 
   return (
     <div className={classes.issueComponent}>
@@ -145,14 +145,14 @@ const IssuePage = ({
           fromMe ? classes.fromMe : classes.fromOther,
         )}
       >
-        {/* <Typography
+        <Typography
           align="right"
           noWrap
           dir="rtl"
           className={classes.statusText}
         >
-          {convertToPersianFormat(new Date(date))}
-        </Typography> */}
+          {convertToPersianFormat(new Date(status))}
+        </Typography>
         <Typography
           dir="auto"
           align="right"
@@ -169,7 +169,7 @@ const IssuePage = ({
         >
           {body}
         </Typography>
-        <div className={classes.footer}>
+        <div className={classes.footer}> 
           <Button
             onClick={onShowIssue}
             className={classes.showIssueButton}

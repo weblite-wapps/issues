@@ -8,9 +8,9 @@
   "inline": true,
   "searchable": false,
   "width": 240,
-  "height": 187,
+  "height": 195,
   "servIndexes": {
     "inline": "index"
   },
-  "version": "0.0.13"
+  "version": "0.0.15"
 }
