@@ -123,6 +123,8 @@ const Issue = ({
           className="iranyekan"
           style={{
             fontSize: 14,
+            fontWeight: 'bold',
+            font: 'Bold',
             lineHeight: '25px',
             letterSpacing: '-0.1px',
             textAlign: 'right',

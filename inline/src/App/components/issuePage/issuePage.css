@@ -2,3 +2,7 @@
     max-width: 240px;
     margin-left: auto;
 }
+
+html, body, #root, issueComponnet {
+    height: 100%
+}

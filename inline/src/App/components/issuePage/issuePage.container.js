@@ -18,7 +18,7 @@ const mapDispatchToProps = () => ({
     W &&
       W.runWapp(
         'main',
-        '5d8b97e38f1caa56a175a827',
+        '5d8e5b4201dbd77775ee5023',
         getState().user.senderWisId,
         { issueId: issueIdView() },
       )

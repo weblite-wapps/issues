@@ -6,7 +6,7 @@ import './issuePage.css'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
-// helper
+// helpers
 import { cns, ab, toPersian } from '../../../helpers/utils'
 import { convertToPersianFormat } from '../../../helpers/date'
 
@@ -78,7 +78,7 @@ const useStyles = makeStyles(() => ({
   footer: {
     display: 'flex',
     justifyContent: 'space-between',
-    margin: '0 10px',
+    margin: '6px 10px 0',
     alignItems: 'flex-end',
   },
   showIssueButton: {
@@ -116,6 +116,7 @@ const IssuePage = ({
   onShowIssue,
 }) => {
   const classes = useStyles()
+
   return (
     <div className={classes.issueComponent}>
       <div className={classes.header}>
@@ -126,7 +127,7 @@ const IssuePage = ({
             ab(classes.headerClosed)(isClosed),
           )}
         >
-          11ســــــــــــــوال
+          ســــــــــــــوال
         </Typography>
         <div className={classes.headerImageBox}>
           <img
