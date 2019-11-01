@@ -145,14 +145,14 @@ const IssuePage = ({
           fromMe ? classes.fromMe : classes.fromOther,
         )}
       >
-        <Typography
+        {/* <Typography
           align="right"
           noWrap
           dir="rtl"
           className={classes.statusText}
         >
           {convertToPersianFormat(new Date(status))}
-        </Typography>
+        </Typography> */}
         <Typography
           dir="auto"
           align="right"

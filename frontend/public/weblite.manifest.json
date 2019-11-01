@@ -1,6 +1,6 @@
 {
-  "name": "issues",
-  "id": "5d8b97e38f1caa56a175a827",
+  "name": "سوال",
+  "id": "5d8e5b4201dbd77775ee5023",
   "instantiable": true,
   "creator": true,
   "userInfo": true,
@@ -10,5 +10,5 @@
   "servIndexes": {
     "main": "index"
   },
-  "version": "0.0.0"
+  "version": "0.0.11"
 }
