@@ -57,8 +57,8 @@ const MyTabs = ({ selected }) => (
       }}
     >
       <StyledTab label="سوال جدید" value="new" />
-      <StyledTab label="سوال های من" value="mine" />
-      <StyledTab label="همه سوال ها" value="all" />
+      <StyledTab label="سوالات من" value="mine" />
+      <StyledTab label="همه سوالات" value="all" />
     </StyledTabs>
   </AppBar>
 )
