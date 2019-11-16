@@ -7,5 +7,17 @@ import './setup/fonts/fonts.scss'
 // requests
 import loadData from './helpers/weblite.api'
 
-ReactDOM.render(<App />, document.getElementById('root'))
-loadData()
+const W = window.W
+
+if (W && W.mode !== 'inline') {
+  W.loadData().then(
+    ({ customize: { issueId, wisId } }) => W.runWapp(
+      W.mode,
+      '5d8e5b4201dbd77775ee5023',
+      wisId,
+      { issueId },
+    ))
+} else {
+  ReactDOM.render(<App />, document.getElementById('root'))
+  loadData()
+}
